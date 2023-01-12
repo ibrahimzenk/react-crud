@@ -1,6 +1,7 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { getUsers } from "../services/userService";
 import { getUser, addUser, editUser, deleteUser } from "../store/userSlice";
 
 function User() {
@@ -13,18 +14,33 @@ function User() {
   //   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    getUsers();
+    getUsersF();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getUsers = async () => {
-    await axios({
-      method: "get",
-      url: "https://63bd71ebd660062388a61184.mockapi.io/crud",
-    }).then((response) => {
-      dispatch(getUser(response.data));
-      setUsers(response.data);
-    });
+  const getUsersF = async () => {
+    console.log("1");
+
+    // await api()
+    //   .get("/crud")
+    //   .then((response) => {
+    //     dispatch(getUser(response.data));
+    //     setUsers(response.data);
+    //   });
+
+    const response = await getUsers();
+    dispatch(getUser(response));
+    setUsers(response);
+
+    console.log("2");
+
+    // await axios({
+    //   method: "get",
+    //   url: "https://63bd71ebd660062388a61184.mockapi.io/crud",
+    // }).then((response) => {
+    //   dispatch(getUser(response.data));
+    //   setUsers(response.data);
+    // });
   };
 
   // ! Ekleme sonrası çalışıcak
