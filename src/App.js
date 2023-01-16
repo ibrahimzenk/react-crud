@@ -1,10 +1,12 @@
 import React from "react";
-import User from "./pages/User";
+import Product from "./pages/Product";
+// import User from "./pages/User";
 
 function App() {
   return (
     <div>
-      <User />
+      {/* <User /> */}
+      <Product />
     </div>
   );
 }
