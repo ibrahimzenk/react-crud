@@ -1,12 +1,14 @@
 import React from "react";
-import Product from "./pages/Product";
 // import User from "./pages/User";
+// import Product from "./pages/Product";
+import Patient from "./pages/Patient";
 
 function App() {
   return (
     <div>
       {/* <User /> */}
-      <Product />
+      {/* <Product /> */}
+      <Patient />
     </div>
   );
 }
